@@ -132,7 +132,32 @@ namespace 数组
             //}
             #endregion
             #region work8二维数组
-
+            int[,] arr1 = { { 0, 1, 2, 9 }, { 3, 4, 5, 9 }, { 6, 7, 8, 9 } };
+            int[,] arr2 = new int[arr1.GetLength(1), arr1.GetLength(0)];
+            for(int i=0;i<arr1.GetLength(0);i++)
+            {
+                for(int j=0;j<arr1.GetLength(1);j++)
+                {
+                    arr2[j, i] = arr1[i, j];
+                }
+            }
+            for (int i = 0; i < arr1.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr1.GetLength(1); j++)
+                {
+                    Console.Write(arr1[i, j]+" ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+            for (int i = 0; i < arr2.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr2.GetLength(1); j++)
+                {
+                    Console.Write(arr2[i, j]+" ");
+                }
+                Console.WriteLine();
+            }
             #endregion
         }
     }

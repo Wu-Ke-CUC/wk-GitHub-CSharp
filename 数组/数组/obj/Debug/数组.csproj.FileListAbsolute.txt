@@ -5,3 +5,10 @@ D:\c#学习\数组\数组\obj\Debug\数组.csproj.AssemblyReference.cache
 D:\c#学习\数组\数组\obj\Debug\数组.csproj.CoreCompileInputs.cache
 D:\c#学习\数组\数组\obj\Debug\数组.exe
 D:\c#学习\数组\数组\obj\Debug\数组.pdb
+D:\github\Git\Wu-Ke-CUC\wk-GitHub-CSharp\数组\数组\bin\Debug\数组.exe.config
+D:\github\Git\Wu-Ke-CUC\wk-GitHub-CSharp\数组\数组\bin\Debug\数组.exe
+D:\github\Git\Wu-Ke-CUC\wk-GitHub-CSharp\数组\数组\bin\Debug\数组.pdb
+D:\github\Git\Wu-Ke-CUC\wk-GitHub-CSharp\数组\数组\obj\Debug\数组.csproj.AssemblyReference.cache
+D:\github\Git\Wu-Ke-CUC\wk-GitHub-CSharp\数组\数组\obj\Debug\数组.csproj.CoreCompileInputs.cache
+D:\github\Git\Wu-Ke-CUC\wk-GitHub-CSharp\数组\数组\obj\Debug\数组.exe
+D:\github\Git\Wu-Ke-CUC\wk-GitHub-CSharp\数组\数组\obj\Debug\数组.pdb
