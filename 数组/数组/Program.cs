@@ -5,6 +5,13 @@ namespace 数组
 {
     class Program
     {
+        enum Subject
+        {
+            Chinese,
+            //Chinese = 1,
+            Math,
+            English
+        }
         static void Main(string[] args)
         {
             #region work1
@@ -59,7 +66,7 @@ namespace 数组
             //b[0] = 20;
             //Console.WriteLine(a[0]);
             #endregion
-            #region work5
+            #region work5实时排序
             //int[] nums = new int[5];
             //for (int i = 0; i < nums.Length; i++)
             //{
@@ -89,7 +96,7 @@ namespace 数组
             ////    Console.Write(n + " ");
             ////}
             #endregion
-            #region work6
+            #region work6打印
             //int input = int.Parse(Console.ReadLine());
             //for(int i=0;i<2*input-1;i++)
             //{
@@ -132,32 +139,52 @@ namespace 数组
             //}
             #endregion
             #region work8二维数组
-            int[,] arr1 = { { 0, 1, 2, 9 }, { 3, 4, 5, 9 }, { 6, 7, 8, 9 } };
-            int[,] arr2 = new int[arr1.GetLength(1), arr1.GetLength(0)];
-            for(int i=0;i<arr1.GetLength(0);i++)
+            //int[,] arr1 = { { 0, 1, 2, 9 }, { 3, 4, 5, 9 }, { 6, 7, 8, 9 } };
+            //int[,] arr2 = new int[arr1.GetLength(1), arr1.GetLength(0)];
+            //for(int i=0;i<arr1.GetLength(0);i++)
+            //{
+            //    for(int j=0;j<arr1.GetLength(1);j++)
+            //    {
+            //        arr2[j, i] = arr1[i, j];
+            //    }
+            //}
+            //for (int i = 0; i < arr1.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < arr1.GetLength(1); j++)
+            //    {
+            //        Console.Write(arr1[i, j]+" ");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //Console.WriteLine();
+            //for (int i = 0; i < arr2.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < arr2.GetLength(1); j++)
+            //    {
+            //        Console.Write(arr2[i, j]+" ");
+            //    }
+            //    Console.WriteLine();
+            //}
+            #endregion
+            #region work9枚举使用
+            Subject subject = Subject.Chinese;
+            if (subject == Subject.English) { }
+            switch(subject)
             {
-                for(int j=0;j<arr1.GetLength(1);j++)
-                {
-                    arr2[j, i] = arr1[i, j];
-                }
+                case Subject.Chinese:
+                    break;
+                case Subject.Math:
+                    break;
+                case Subject.English:
+                    break;
+                default:
+                    break;
             }
-            for (int i = 0; i < arr1.GetLength(0); i++)
-            {
-                for (int j = 0; j < arr1.GetLength(1); j++)
-                {
-                    Console.Write(arr1[i, j]+" ");
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine();
-            for (int i = 0; i < arr2.GetLength(0); i++)
-            {
-                for (int j = 0; j < arr2.GetLength(1); j++)
-                {
-                    Console.Write(arr2[i, j]+" ");
-                }
-                Console.WriteLine();
-            }
+            //枚举与int的强制转换
+            int num = (int)subject;
+            //subject = (Subject)3;
+            Console.WriteLine(num + " " + (subject + 1));
+            //枚举是值类型
             #endregion
         }
     }
