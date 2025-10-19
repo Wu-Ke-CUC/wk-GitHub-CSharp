@@ -12,6 +12,18 @@ namespace 数组
             Math,
             English
         }
+        struct Student
+        {
+            public string name;
+            public int age;
+            public int id;
+            public Student(string name, int age, int id)//自定义构造函数
+            {
+                this.name = name;
+                this.age = age;
+                this.id = id;
+            }
+        }
         static void Main(string[] args)
         {
             #region work1
@@ -185,6 +197,8 @@ namespace 数组
             //subject = (Subject)3;
             Console.WriteLine(num + " " + (subject + 1));
             //枚举是值类型
+            //结构体是值类型
+            Student jay = new Student("Jay", 18, 2025);
             #endregion
         }
     }
