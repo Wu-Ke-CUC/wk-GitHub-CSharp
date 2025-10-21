@@ -41,8 +41,14 @@ namespace OOP
     /// </summary>
     class Hero
     {
-        public string name;
-        public int baseHP=100;
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public int baseHP = 100;//Field字段
         public int baseDamage = 10;
         public int baseDefense = 10;
         public int baseMoveSpeed = 10;
@@ -53,9 +59,16 @@ namespace OOP
         public int moveSpeed;
 
         private int grade = 1;
+        //public int Grade{get;set;}//快捷写法
+        public int Grade
+        {
+            get { return grade; }//读 默认public 
+            set { grade = value; }//写 默认public 
+        }
+
         public List<Equipment> equipments = new List<Equipment>();
         private int maxEquipmentCount = 6;
-        
+
         public Hero(string name, int baseHP, int baseDamage, int baseDefense, int baseMoveSpeed)
         {
             this.name = name;
@@ -66,7 +79,7 @@ namespace OOP
             InitPlayerPorperties();
         }
 
-        public void InitPlayerPorperties()
+        public void InitPlayerPorperties()//Method方法
         {
             hp = baseHP;
             damage = baseDamage;
@@ -84,11 +97,10 @@ namespace OOP
                 moveSpeed += item.spBuff;
             }
         }
-
         //加载装备
         public void LoadEquipment(Equipment equipment)
         {
-            if(equipments.Count()<=maxEquipmentCount&&equipment!=null)
+            if (equipments.Count() <= maxEquipmentCount && equipment != null)
             {
                 equipments.Add(equipment);
                 UpdatePlayerProperties();
@@ -103,7 +115,7 @@ namespace OOP
         //卸载装备
         public void UploadEquipment(Equipment equipment)
         {
-            if(equipment!=null)
+            if (equipment != null)
             {
                 Console.WriteLine($"{name}卸载{equipment.name}成功");
                 equipments.Remove(equipment);
@@ -123,19 +135,19 @@ namespace OOP
             int damage = injurer.damage - defense;
             damage = damage > 0 ? damage : 0;
             hp -= damage;
-            if(hp<=0)
+            if (hp <= 0)
             {
-                Console.WriteLine($"{name}被{injurer.name}击杀了");
+                Console.WriteLine($"{name}被{injurer.Name}击杀了");
                 injurer.KillAward();
             }
             else
             {
-                Console.WriteLine($"{name}受到{injurer.name}{damage}点伤害了,剩余{hp}点血量");
+                Console.WriteLine($"{name}受到{injurer.Name}{damage}点伤害了,剩余{hp}点血量");
             }
         }
         public void KillAward()
         {
-            grade++;
+            Grade++;
             Console.WriteLine($"{name}等级提升至{grade}");
             baseDamage += 200;
             UpdatePlayerProperties();
