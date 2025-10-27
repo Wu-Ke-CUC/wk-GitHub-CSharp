@@ -24,7 +24,7 @@ namespace PropertiesAndMethod
     {
         public float deltaTime;
         public float timeScale;
-        public float DeltaTime{ get { return new Random().Next(1, 4) / 100.0f; } }
+        public float DeltaTime{ get { return new Random().Next(100, 400) / 10000.0f; } }
         public float TimeScale{get;set;}
         public void TScale()
         {
