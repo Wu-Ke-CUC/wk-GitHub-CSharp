@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,7 +44,98 @@ namespace PropertiesAndMethod
             }
         }      
     }
-
+    class House
+    {
+        #region 字段
+        private List<Person> hosts;
+        private string position;
+        private float area;
+        private float price;
+        #endregion
+        #region 属性
+        public List<Person> Hosts { get => hosts; set => hosts=value; }
+        public string Position { get => position; set => position = value; }
+        public float Area { get => area; set => area = value; }
+        public float Price { get => price; set => price = value; }
+        #endregion
+        public float Evaluate()
+        {
+            return area * price;
+        }
+        public void Appreciation(float scale)
+        {
+            price *= (1 + scale);
+        }
+    }
+    class Person
+    {
+        #region 字段
+        private string name;
+        private string sex;
+        private float money;
+        private Person mate;
+        private List<House> houses;
+        #endregion
+        #region 属性
+        public string Name { get => name; set => name = value; }
+        public string Sex { get => sex; set => sex = value; }
+        public float Money { get => money; set => money = value; }
+        public Person Mate { get => mate; set => mate = value; }
+        public List<House> Houses { get => houses; set => houses = value; }
+        #endregion
+        public void EarnMoney(float salary)
+        {
+            if (salary < 0) return;
+            money += salary;
+            Console.WriteLine(name + "挣了" + salary + "元。");
+        }
+        public void BuyHouse(House house)
+        {
+            if (money >= house.Evaluate())
+            {
+                houses.Add(house);
+                money -= house.Evaluate();
+                house.Hosts.Clear();
+                house.Hosts.Add(this);
+            }
+            else
+            {
+                Console.WriteLine("钱不够");
+            }
+        }
+        public void Marry(Person mate)
+        {
+            if(this.mate==null&&mate.Mate==null)
+            {
+                this.mate = mate;
+                mate.Mate = this;
+            }
+            else
+            {
+                Console.WriteLine("结婚失败");
+            }
+        }
+        public void SellHouse(House house)
+        {
+            if(houses.Contains(house))
+            {
+                houses.Remove(house);
+                if (mate == null)
+                {
+                    money += house.Evaluate();
+                }
+                else
+                {
+                    money += house.Evaluate() / 2;
+                    mate.Money += house.Evaluate() / 2;
+                }
+            }
+        }
+        public void divorce()
+        {
+            mate = null;
+        }
+    }
     class Program
     {
         static void Main(string[] args)
