@@ -109,6 +109,14 @@ namespace PropertiesAndMethod
             {
                 this.mate = mate;
                 mate.Mate = this;
+                foreach(var house in houses)
+                {
+                    house.Hosts.Add(mate);
+                }
+                foreach(var house in mate.Houses)
+                {
+                    house.Hosts.Add(this);
+                }
             }
             else
             {
@@ -120,14 +128,9 @@ namespace PropertiesAndMethod
             if(houses.Contains(house))
             {
                 houses.Remove(house);
-                if (mate == null)
+                foreach(var host in house.Hosts)
                 {
-                    money += house.Evaluate();
-                }
-                else
-                {
-                    money += house.Evaluate() / 2;
-                    mate.Money += house.Evaluate() / 2;
+                    host.Money += house.Evaluate() / house.Hosts.Count;
                 }
             }
         }
