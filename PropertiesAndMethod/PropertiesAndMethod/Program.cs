@@ -55,7 +55,12 @@ namespace PropertiesAndMethod
         #region 属性
         public List<Person> Hosts { get => hosts; set => hosts=value; }
         public string Position { get => position; set => position = value; }
-        public float Area { get => area; set => area = value; }
+        public float Area
+        {
+            get => area;
+            set { if (value <= 0) return;
+                  else area = value;}
+        }
         public float Price { get => price; set => price = value; }
         #endregion
         public float Evaluate()
@@ -105,18 +110,17 @@ namespace PropertiesAndMethod
         }
         public void Marry(Person mate)
         {
-            if(this.mate==null&&mate.Mate==null)
+            if(this.mate==null)
             {
                 this.mate = mate;
-                mate.Mate = this;
                 foreach(var house in houses)
                 {
-                    house.Hosts.Add(mate);
+                    if(!house.Hosts.Contains(mate))
+                    {
+                        house.Hosts.Add(mate);
+                    }
                 }
-                foreach(var house in mate.Houses)
-                {
-                    house.Hosts.Add(this);
-                }
+                mate.Marry(this);
             }
             else
             {
@@ -158,12 +162,14 @@ namespace PropertiesAndMethod
             ////out为输出通道，离开方法前必须赋值，形参与实参都需要加out
             //Console.WriteLine($"After:{resultOne} {resultTwo}");
             #endregion
-            #endregion 
+            #endregion
             #region Time
             //Time time = new Time();
             //Console.WriteLine(time.DeltaTime);
             //time.TimeScale = 1f;
             //time.TScale();
+            #endregion
+            #region Person和House
             #endregion
         }
     }
