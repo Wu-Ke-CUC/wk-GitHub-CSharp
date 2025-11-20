@@ -8,62 +8,85 @@ using System.Xml.Linq;
 namespace ClassAndObject
 {
     #region Student
-    //enum StudentLevel
-    //{
-    //    top,
-    //    medium,
-    //    low
-    //}
-    ///// <summary>
-    ///// Student类
-    ///// </summary>
-    //class Student
-    //{
-    //    //特性
-    //    public string name;
-    //    public int age;
-    //    public int id;
-    //    public StudentLevel studentLevel;
-    //    private bool hasStudied = false;
-    //    private string[] Subject = { "Chinese", "Math", "English" };
+    enum StudentLevel
+    {
+        top,
+        medium,
+        low
+    }
+    /// <summary>
+    /// Student类
+    /// </summary>
+    class Student
+    {
+        private string name;
+        private int age;
+        private string id;
+        public StudentLevel studentLevel;
+        private bool hasStudied = false;
+        private string[] Subject = { "Chinese", "Math", "English" };
 
-    //    public Student(string name, int age, int id, StudentLevel studentLevel)
-    //    {
-    //        this.name = name;
-    //        this.age = age;
-    //        this.id = id;
-    //        this.studentLevel = studentLevel;
-    //    }
+        public string Name { get => name; set => name = value; }
+        public int Age 
+        {   
+            get => age; 
+            set 
+            { 
+                if (value < 0) return;
+                else age = value;
+            } 
+        }
+        public string Id
+        {
+            get => id; 
+            set
+            {
+                if (value.Length != 4)
+                {
+                    Console.WriteLine("学号格式不符合要求。");
+                    return;
+                }
+                else id = value;
+            }
+        }
 
-    //    //行为
-    //    public void Study()
-    //    {
-    //        hasStudied = true;
-    //        Console.WriteLine($"{name} is studying.");
-    //    }
-    //    public void Exam()
-    //    {
-    //        switch(studentLevel)
-    //        {
-    //            case StudentLevel.top:
-    //                Console.WriteLine($"{name} gets {(new Random().Next(85, 95)) + (hasStudied ? 5 : 0)}");
-    //                break;
-    //            case StudentLevel.medium:
-    //                Console.WriteLine($"{name} gets {(new Random().Next(75, 85)) + (hasStudied ? 5 : 0)}");
-    //                break;
-    //            case StudentLevel.low:
-    //                Console.WriteLine($"{name} gets {(new Random().Next(50, 75) + (hasStudied ? 5 : 0))}");
-    //                break;
-    //            default:
-    //                break;
-    //        }
-    //    }
-    //    public void IntroduceMyself()
-    //    {
-    //        int num = new Random().Next(0, Subject.Length);
-    //        Console.WriteLine($"My name is {name},and I'm {age} years old.My best subject is {Subject[num]}.");
-    //    }
-    //}
+        public Student(string name, int age, string id, StudentLevel studentLevel)
+        {
+            this.Name = name;
+            this.Age = age;
+            this.Id = id;
+            this.studentLevel = studentLevel;
+        }
+
+        //行为
+        public void Study()
+        {
+            hasStudied = true;
+            Console.WriteLine($"{Name} is studying.");
+        }
+        public void Exam()
+        {
+            switch (studentLevel)
+            {
+                case StudentLevel.top:
+                    Console.WriteLine($"{Name} gets {(new Random().Next(85, 95)) + (hasStudied ? 5 : 0)}");
+                    break;
+                case StudentLevel.medium:
+                    Console.WriteLine($"{Name} gets {(new Random().Next(75, 85)) + (hasStudied ? 5 : 0)}");
+                    break;
+                case StudentLevel.low:
+                    Console.WriteLine($"{Name} gets {(new Random().Next(50, 75) + (hasStudied ? 5 : 0))}");
+                    break;
+                default:
+                    break;
+            }
+        }
+        public void IntroduceMyself()
+        {
+            int num = new Random().Next(0, Subject.Length);
+            Console.WriteLine($"My name is {Name},and I'm {Age} years old.My best subject is {Subject[num]}.");
+        }
+    }
     #endregion
     #region Player
     ///// <summary>
@@ -110,10 +133,10 @@ namespace ClassAndObject
         static void Main(string[] args)
         {
             #region Student
-            //Student jay = new Student("Jay",18,2025,StudentLevel.top);//实例化//引用类型
-            //jay.Study();
-            //jay.Exam();
-            //jay.IntroduceMyself();
+            Student jay = new Student("Jay", 18, "2025", StudentLevel.top);//实例化//引用类型
+            jay.Study();
+            jay.Exam();
+            jay.IntroduceMyself();
             #endregion
             #region Player
 

@@ -138,7 +138,7 @@ namespace PropertiesAndMethod
                 }
             }
         }
-        public void divorce()
+        public void Divorce()
         {
             mate = null;
         }
