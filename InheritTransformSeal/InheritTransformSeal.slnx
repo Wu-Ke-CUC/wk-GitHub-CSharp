@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="Inherit/Inherit.csproj" Id="095a8f92-953f-4fb8-b48b-57070deb96cc" />
+  <Project Path="InternalText/InternalText.csproj" Id="0a1b4d4f-2e0d-4cbc-a53c-248a32f9111f" />
 </Solution>
