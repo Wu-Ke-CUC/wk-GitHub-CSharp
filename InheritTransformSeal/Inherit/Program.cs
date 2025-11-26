@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlTypes;
 
 namespace Inherit
 {
@@ -74,25 +75,54 @@ namespace Inherit
         }
         static void Main(string[] args)
         {
+            #region Inherit
             //Student s = new Student("zhangsan", 18, "male");
             //Programmer p = new Programmer("wangwu", 20, "male");
             //s.Greet();
             //p.Greet();
             //s.Hobby();
             //p.Hobby();
-            Text1.TextWrite();
+            //Text1.TextWrite();
             //Text2
             //Console.WriteLine(Text.num);
-            //#region 代码块
+            #endregion
+            #region 代码块
             //{
             //    int a = 10;
             //    Console.WriteLine(a);
             //}
-            //Console.WriteLine(a);
+            //Console.WriteLine(a);//报错
             //增加运行效率
-            //#endregion
-            Student s = new Student("hhl", 20, "male", "Unity");
-            s.Greet();
+            #endregion
+            #region 里氏替换
+            //子类对象转换为父类
+            {
+                //Student s = new Student("hhl", 20, "male", "Unity");
+                //s.Greet();
+                //Person p = s;
+                //p.Greet();
+                //p.major = "C#";//报错
+                //Person lisi = new Student("lisi", 18, "female","C#");
+                ////lisi.major = "Unity";//报错
+                //Console.WriteLine(((Student)lisi).major);
+                //lisi.Greet();
+                //((Student)lisi).Greet();//强制类型转换比较危险
+            }
+            //父类对象无法转换为子类对象
+            {
+                //Person s = new Person("zhaoliu", 18, "male");
+                //Student p = s;//报错
+            }
+            //is关键词 as关键词
+            {
+                Person zhangsan = new Student("zhangsan", 18, "male","C#");
+                if(zhangsan is Student)
+                {
+                    Console.WriteLine(((Student)zhangsan).major);
+                }
+                Student s = zhangsan as Student;//如果不是则返回null 较安全
+            }
+            #endregion
         }
     }
 }
