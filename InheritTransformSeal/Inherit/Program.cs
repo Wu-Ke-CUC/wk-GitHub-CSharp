@@ -113,7 +113,7 @@ namespace Inherit
                 //Person s = new Person("zhaoliu", 18, "male");
                 //Student p = s;//报错
             }
-            //is关键词 as关键词
+            //is关键字 as关键字
             {
                 Person zhangsan = new Student("zhangsan", 18, "male","C#");
                 if(zhangsan is Student)
