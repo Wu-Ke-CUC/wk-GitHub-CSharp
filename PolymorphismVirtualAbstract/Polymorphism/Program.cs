@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Polymorphism
+﻿namespace Polymorphism
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-        }
-    }
+    //多态：同一操作作用与不同对象，可以有不同解释，产生不同的执行结果
+    //虚方法--抽象类抽象方法--接口
+    //虚方法可以在普通类中也可以在抽象类中
+    //抽象方法只能在抽象类中
+    //接口可以实现多个
 }
