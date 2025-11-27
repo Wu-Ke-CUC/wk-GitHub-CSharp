@@ -1,6 +1,8 @@
 <Solution>
+  <Folder Name="/文本文件/">
+    <File Path="SealClass.txt" />
+  </Folder>
   <Project Path="Inherit/Inherit.csproj" Id="095a8f92-953f-4fb8-b48b-57070deb96cc" />
   <Project Path="InternalText/InternalText.csproj" Id="0a1b4d4f-2e0d-4cbc-a53c-248a32f9111f" />
   <Project Path="LiskovSubstitution/LiskovSubstitution.csproj" Id="3fa1620d-025e-46b4-9fba-01b3a111c981" />
-  <Project Path="SealClass/SealClass.csproj" Id="87dc569c-f88c-4bff-aab7-76944ff18ff9" />
 </Solution>
