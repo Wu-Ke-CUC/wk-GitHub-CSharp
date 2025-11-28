@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="InterfaceIndexThread/InterfaceIndexThread.csproj" />
+  <Folder Name="/文本文件/">
+    <File Path="text.txt" />
+  </Folder>
+  <Project Path="InterfaceIndexThread/Interface.csproj" Id="3310aa6e-feee-4e76-81e3-2d0d0a8d20a9" />
 </Solution>
