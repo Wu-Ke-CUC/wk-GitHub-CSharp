@@ -52,6 +52,19 @@ namespace VirtualMethod
     }
     #endregion
     #region 练习
+    class Host
+    {
+        public string name;
+        public Host(string name)
+        {
+            this.name = name;
+        }
+        public void WalkAnimal(Animal animal)
+        {
+            animal.Move();
+        }
+    }
+
     class Animal
     {
         public string name;
@@ -112,6 +125,8 @@ namespace VirtualMethod
             {
                 item.Move();
             }
+            Host host = new Host("zhangsan");
+            host.WalkAnimal(dog);
             #endregion
         }
     }

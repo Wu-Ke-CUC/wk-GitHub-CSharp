@@ -2,5 +2,6 @@
   <Folder Name="/文本文件/">
     <File Path="Polymorphism.txt" />
   </Folder>
+  <Project Path="Abstract/Abstract.csproj" Id="da5435da-2f78-41d8-b48f-bf9b5512b89b" />
   <Project Path="VirtualMethod/VirtualMethod.csproj" Id="c6e430ce-c10b-4d58-920a-4452542edd85" />
 </Solution>
