@@ -2,5 +2,7 @@
   <Folder Name="/解决方案项/">
     <File Path="text.txt" />
   </Folder>
+  <Project Path="Indexer/Indexer.csproj" Id="0af787e3-054e-4607-8499-5fcb74392bf6" />
   <Project Path="InterfaceIndexThread/Interface.csproj" Id="3310aa6e-feee-4e76-81e3-2d0d0a8d20a9" />
+  <Project Path="Threading/Threading.csproj" Id="fe50ba8c-be8c-4cac-b0f2-828dcaad5e25" />
 </Solution>
