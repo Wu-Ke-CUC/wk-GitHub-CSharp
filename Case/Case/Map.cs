@@ -37,38 +37,49 @@ namespace SnakeGame
         }
         public Map(string icon,int sizeX,int sizeY,int startPosX,int startPosY,ConsoleColor color):
             this(icon,new Vector2(sizeX,sizeY),new Vector2(startPosX, startPosY), color) { }
-        public void GreateWallDate()
+        public void CreateWallDate()
         {
             Console.ForegroundColor = color;
+            for (int i = 0; i < size.x; i++)
+            {
+                GameObject gameObject1 = new GameObject(new Vector2(startPos.x + i * 2, startPos.y), icon, color);
+                GameObject gameObject2 = new GameObject(new Vector2(startPos.x + i * 2, startPos.y + size.y - 1), icon, color);
+                gameObjects.Add(gameObject1);
+                gameObjects.Add(gameObject2);
+            }
             for (int i = 0; i < size.y; i++)
             {
-                for (int j = 0; j < size.x; j++)
-                {
-                    if (i == 0||i==size.y-1) 
-                    {
-                        GameObject gameObject = new GameObject(new Vector2(startPos.x + j, startPos.y + i), icon, color);
-                        gameObjects.Add(gameObject);
-                        //gameObject.Draw();
-                        //Console.SetCursorPosition(startPos.x+j, startPos.y+i);
-                        //Console.Write(icon);
-                    }
-                    if(j==0||j==size.x-1)
-                    {
-                        GameObject gameObject = new GameObject(new Vector2(startPos.x + j, startPos.y + i), icon, color);
-                        gameObjects.Add(gameObject);
-                        //gameObject.Draw();
-                        //Console.SetCursorPosition(startPos.x + j, startPos.y + i);
-                        //Console.Write(icon);
-                    }
-                }
+                GameObject gameObject1 = new GameObject(new Vector2(startPos.x, startPos.y + i), icon, color);
+                GameObject gameObject2 = new GameObject(new Vector2(startPos.x + (size.x - 1) * 2, startPos.y + i), icon, color);
+                gameObjects.Add(gameObject1);
+                gameObjects.Add(gameObject2);
             }
+        }
+        public void CrearFood()
+        {
+            int minX = startPos.x + 2;
+            int maxX = startPos.x + (size.x - 2) * 2;
+            int minY = startPos.y + 1;
+            int maxY = startPos.y + size.y - 2;
+            //Console.SetCursorPosition(minX, minY + 1);
+            //Console.Write("%%");
+            //Console.SetCursorPosition(minX, maxY - 1);
+            //Console.Write("%%");
+            //Console.SetCursorPosition(maxX, minY + 1);
+            //Console.Write("%%");
+            //Console.SetCursorPosition(maxX, maxY - 1);
+            //Console.Write("%%");
+            Console.SetCursorPosition(new Random().Next(minX, maxX + 1), new Random().Next(minY, maxY + 1));
+            Console.Write("$$");
         }
         public void Draw()
         {
+            CreateWallDate();
             foreach (var icon in gameObjects)
             {
                 icon.Draw();
             }
+            CrearFood();
         }
     }
 }

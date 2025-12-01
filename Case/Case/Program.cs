@@ -80,9 +80,9 @@ namespace SnakeGame
             //g.Draw();
             //Map map = new Map("*", new Vector2(10, 5), new Vector2(1, 1), ConsoleColor.Cyan);
             //map.GreateWallDate();
-            Map.Instance= new Map("O", new Vector2(20, 20), new Vector2(5, 2), ConsoleColor.Cyan);
-            Map.Instance.GreateWallDate();
+            Map.Instance= new Map("##", new Vector2(10, 10), new Vector2(0, 0), ConsoleColor.Cyan);
             Map.Instance.Draw();
+            Console.ReadKey();
         }
     }
 }
