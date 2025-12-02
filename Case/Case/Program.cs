@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SnakeGame
@@ -36,37 +38,49 @@ namespace SnakeGame
             return "x:" + x + " y:" + y;
         }
     }
-    class GameObject
-    {
-        public Vector2 pos;
-        public string icon;
-        public ConsoleColor color;
-        public GameObject(Vector2 pos, string icon, ConsoleColor color)
-        {
-            this.pos = pos;
-            this.icon = icon;
-            this.color = color;
-        }
-        public void Draw()
-        {
-            Console.SetCursorPosition(pos.x, pos.y);
-            Console.ForegroundColor = color;
-            Console.Write(icon);
-            Console.ForegroundColor = ConsoleColor.White;
-        }
-        public void Remove()
-        {
-            Console.SetCursorPosition(pos.x, pos.y);
-            Console.Write(" ");
-        }
-        public void Move(Vector2 dir)
-        {
-            pos += dir;
-        }
-    }
 
     internal class Program
     {
+        static Vector2 dir = new Vector2(0, 0);
+        static void InputDirect()
+        {
+            while (true)
+            {
+                //Console.ReadLine();
+                //Map.Instance.CrearFood();
+                char input = Console.ReadKey(true).KeyChar;
+                switch (input)
+                {
+                    case 'w':
+                        if (dir != new Vector2(0, 1))
+                        {
+                            dir = new Vector2(0, -1);
+                        }
+                        break;
+                    case 'a':
+                        if(dir != new Vector2(1, 0))
+                        {
+                            dir = new Vector2(-1, 0);
+                        }                        
+                        break;
+                    case 's':
+                        if (dir != new Vector2(0, -1))
+                        {
+                            dir = new Vector2(0, 1);
+                        }
+                        break;
+                    case 'd':
+                        if (dir != new Vector2(-1, 0))
+                        {
+                            dir = new Vector2(1, 0);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                Snake.Instance.Move(dir);
+            }
+        }
         static void Main(string[] args)
         {
             //Vector2 v1 = new Vector2(1, 2);
@@ -82,7 +96,20 @@ namespace SnakeGame
             //map.GreateWallDate();
             Map.Instance= new Map("##", new Vector2(10, 10), new Vector2(0, 0), ConsoleColor.Cyan);
             Map.Instance.Draw();
-            Console.ReadKey();
+            Snake.Instance = new Snake(new GameObject(5, 5, "*", ConsoleColor.Yellow));
+            Snake.Instance.Draw();
+            Thread inputThread = new Thread(InputDirect);
+            inputThread.Start();
+            Console.CursorVisible = false;
+            while (Snake.Instance.Active)
+            {
+                Snake.Instance.Remove();
+                Snake.Instance.Move(dir);
+                Snake.Instance.TriggerEvent();
+                Snake.Instance.Draw();
+                Thread.Sleep(250);
+            }
+            inputThread.Abort();
         }
     }
 }

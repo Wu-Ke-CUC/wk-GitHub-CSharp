@@ -9,10 +9,11 @@ namespace SnakeGame
     internal class Map
     {
         string icon;
-        Vector2 size;
-        Vector2 startPos;
+        public Vector2 size;
+        public Vector2 startPos;
         ConsoleColor color;
-        List<GameObject> gameObjects = new List<GameObject>();
+        public GameObject food;
+        public List<GameObject> gameObjects = new List<GameObject>();
         public static Map instance;
         public static Map Instance
         {
@@ -55,22 +56,17 @@ namespace SnakeGame
                 gameObjects.Add(gameObject2);
             }
         }
-        public void CrearFood()
+        public void CreateFood()
         {
             int minX = startPos.x + 2;
             int maxX = startPos.x + (size.x - 2) * 2;
             int minY = startPos.y + 1;
             int maxY = startPos.y + size.y - 2;
-            //Console.SetCursorPosition(minX, minY + 1);
-            //Console.Write("%%");
-            //Console.SetCursorPosition(minX, maxY - 1);
-            //Console.Write("%%");
-            //Console.SetCursorPosition(maxX, minY + 1);
-            //Console.Write("%%");
-            //Console.SetCursorPosition(maxX, maxY - 1);
-            //Console.Write("%%");
-            Console.SetCursorPosition(new Random().Next(minX, maxX + 1), new Random().Next(minY, maxY + 1));
-            Console.Write("$$");
+            Random random = new Random();
+            int foodX = random.Next(minX, maxX + 1);
+            int foodY = random.Next(minY, maxY + 1);
+            food = new GameObject(foodX, foodY, "$", ConsoleColor.Red);
+            food.Draw();
         }
         public void Draw()
         {
@@ -79,7 +75,7 @@ namespace SnakeGame
             {
                 icon.Draw();
             }
-            CrearFood();
+            CreateFood();
         }
     }
 }
