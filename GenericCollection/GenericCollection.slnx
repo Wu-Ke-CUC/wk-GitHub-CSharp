@@ -1,3 +1,7 @@
 <Solution>
-  <Project Path="ArrayList/ArrayList.csproj" />
+  <Folder Name="/解决方案项/">
+    <File Path="文本文件.txt" />
+  </Folder>
+  <Project Path="ArrayList/ArrayListUsing.csproj" Id="e46efd2c-82ac-4ded-bebb-446cd741c2b6" />
+  <Project Path="HashTableUsing/HashTableUsing.csproj" Id="b6b13724-d83a-4b4f-b99e-de3b34996dd6" />
 </Solution>
