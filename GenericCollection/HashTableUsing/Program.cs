@@ -12,6 +12,7 @@ namespace HashTableUsing
         static void Main(string[] args)
         {
             Hashtable hashtable = new Hashtable();
+            //添加的顺序为随机
             hashtable.Add(1, "1");
             hashtable.Add("2", 2);
             hashtable.Add("key", "value");
@@ -21,6 +22,7 @@ namespace HashTableUsing
             hashtable.Remove("2");
             Console.WriteLine(hashtable.ContainsValue(2));
             Console.WriteLine(hashtable["key"]);
+            //一般很少遍历
             foreach (var item in hashtable.Keys)
             {
                 Console.Write(hashtable[item]+" ");

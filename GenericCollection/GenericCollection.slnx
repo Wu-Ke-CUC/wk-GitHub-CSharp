@@ -4,4 +4,6 @@
   </Folder>
   <Project Path="ArrayList/ArrayListUsing.csproj" Id="e46efd2c-82ac-4ded-bebb-446cd741c2b6" />
   <Project Path="HashTableUsing/HashTableUsing.csproj" Id="b6b13724-d83a-4b4f-b99e-de3b34996dd6" />
+  <Project Path="QueueUsing/QueueUsing.csproj" Id="82e070e8-4fff-4d5c-a2f2-4a48bb0c5b08" />
+  <Project Path="StackUsing/StackUsing.csproj" Id="67472594-c2e8-4a9c-83d8-e0d4e57a2598" />
 </Solution>
