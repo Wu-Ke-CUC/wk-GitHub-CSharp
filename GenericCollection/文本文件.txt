@@ -5,3 +5,4 @@ HashTable(³£ÓÃÓÚ±³°ü):1£¬¼üÖµ¶ÔµÄÐÎÊ½´¢´æ£¬Ò»¸ö¼üÖ»ÄÜ´¢´æÒ»¸öÖµ£¬Ò»¸öÖµ¿ÉÓÉ¶à¸ö¼
 					  2£¬¼üºÍÖµ¶¼ÊÇObjectÀàÐÍ¡£
 Stack£ºÏÈ½øºó³ö£¬ºó½øÏÈ³ö¡£
 Queue£ºÏÈ½øÏÈ³ö£¬ºó½øºó³ö¡£
+·ºÐÍ¼¯ºÏ£º±ÜÃâ×°Ïä²ðÏäÎÊÌâ¡£
