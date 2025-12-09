@@ -1,0 +1,2 @@
+IComparable接口：排序一些非常规元素。
+Dictionary：类似Hashtable，但可以指定键值对的元素类型。

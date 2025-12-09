@@ -1,3 +1,7 @@
 <Solution>
-  <Project Path="IComparableUsing/IComparableUsing.csproj" />
+  <Folder Name="/解决方案项/">
+    <File Path="text.txt" />
+  </Folder>
+  <Project Path="DictionaryUsing/DictionaryUsing.csproj" Id="2e620c07-100c-41ea-afd0-854da8aa12b5" />
+  <Project Path="IComparableUsing/IComparableUsing.csproj" Id="477e48cd-95f5-42b2-92f4-01c4061b3ab8" />
 </Solution>
