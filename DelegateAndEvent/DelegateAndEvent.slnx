@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="DelegateUsing/DelegateUsing.csproj" />
+  <Folder Name="/解决方案项/">
+    <File Path="Text.txt" />
+  </Folder>
+  <Project Path="DelegateUsing/DelegateUsing.csproj" Id="4e6012c1-da9d-4c29-9ecc-3b6e03eb7d83" />
 </Solution>

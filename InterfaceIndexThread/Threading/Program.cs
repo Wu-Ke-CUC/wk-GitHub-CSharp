@@ -8,7 +8,7 @@ namespace Threading
 {
     internal class Program
     {
-        static void TextThread()
+        static void TestThread()
         {
             while (true)
             {
@@ -18,7 +18,7 @@ namespace Threading
         }
         static void Main(string[] args)
         {
-            Thread thread = new Thread(TextThread);
+            Thread thread = new Thread(TestThread);
             thread.Start();
             while (true)
             {
