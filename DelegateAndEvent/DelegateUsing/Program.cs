@@ -21,7 +21,7 @@ namespace DelegateUsing
         {
             t();
         }
-        #region
+        #region 
         public delegate void DoThing();
         class Teacher
         {
@@ -62,6 +62,39 @@ namespace DelegateUsing
             }
         }
         #endregion
+        #region Sort
+        enum CompareType
+        {
+            Hp, Atk, Def
+        }
+
+        class Hero
+        {
+            public string name;
+            public int hp;
+            public int atk;
+            public int def;
+            public Hero(string name, int hp, int atk, int def)
+            {
+                this.name = name;
+                this.hp = hp;
+                this.atk = atk;
+                this.def = def;
+            }
+            private static CompareType type = CompareType.Hp;
+            public static CompareType Type
+            {
+                set
+                {
+                    type = value;
+                }
+            }
+            public override string ToString()
+            {
+                return $"Name:{name} HP:{hp} Atk:{atk} Def:{def}";
+            }
+        }
+        #endregion
         static void Main(string[] args)
         {
             //声明委托，并将Test1添加到委托
@@ -80,6 +113,8 @@ namespace DelegateUsing
             Test(Test1);
             Console.WriteLine("-------");
             int[] ints = new int[] { 1, 3, 5, 7, 9, 2, 4, 6, 8, 0 };
+            List<int> ints1 = ints.ToList();
+
             //SortArray(ints);
             SortArray(ints, CompareUpper);
             foreach (var item in ints)
@@ -92,6 +127,30 @@ namespace DelegateUsing
             {
                 Console.Write(item + " ");
             }
+
+            //delegate AnonymousMethod
+            Console.WriteLine();
+            Console.WriteLine(ints1.Find((a) =>
+            {
+                return a == 8;
+            }));
+            Console.WriteLine(ints1.Find((a) =>
+            {
+                return a == 10;
+            }));
+
+            ints1.Sort((a, b) => { return a - b; });
+            foreach (var item in ints1)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+            ints1.Sort((a, b) => { return b - a; });
+            foreach (var item in ints1)
+            {
+                Console.Write(item + " ");
+            }
+
             Console.WriteLine();
             Console.WriteLine("-------");
             Teacher teacher = new Teacher("zhangsan");
@@ -102,6 +161,42 @@ namespace DelegateUsing
             Student student3 = new Student("zhaoliu", "睡觉");
             teacher.RigisterThing(student3.Do);
             teacher.Ding();
+
+            //delegate AnonymousMethod in class
+            Console.WriteLine("-------");
+            Hero hero1 = new Hero("zhangsan", 100, 20, 10);
+            Hero hero2 = new Hero("lisis", 90, 25, 5);
+            Hero hero3 = new Hero("wangwu", 110, 15, 15);
+            List<Hero> heroes = new List<Hero>();
+            heroes.Add(hero1);
+            heroes.Add(hero2);
+            heroes.Add(hero3);
+            heroes.Sort((a, b) =>
+            {
+                return a.hp - b.hp;
+            });
+            foreach (var item in heroes)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.WriteLine("-------");
+            heroes.Sort((a, b) =>
+            {
+                return a.atk - b.atk;
+            });
+            foreach (var item in heroes)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.WriteLine("-------");
+            heroes.Sort((a, b) =>
+            {
+                return a.def - b.def;
+            });
+            foreach (var item in heroes)
+            {
+                Console.WriteLine(item.ToString());
+            }
         }
         public delegate bool DelegateSort(int num1, int num2);
         static bool CompareUpper(int num1, int num2)
