@@ -4,4 +4,5 @@
   </Folder>
   <Project Path="AnonymousMethod/AnonymousMethod.csproj" Id="5115aa9e-0b3c-4903-a93a-736a8cb7c889" />
   <Project Path="DelegateUsing/DelegateUsing.csproj" Id="4e6012c1-da9d-4c29-9ecc-3b6e03eb7d83" />
+  <Project Path="GenericDelegate/GenericDelegate.csproj" Id="21343c87-dc47-43eb-a46d-0a315827fec9" />
 </Solution>
